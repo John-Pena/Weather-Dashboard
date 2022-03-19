@@ -44,27 +44,27 @@ var getCityWeather = function(data) {
     });
 };
 
-// var displayWeather = function(weather) {
+var displayWeather = function(weather) {
 
-//     // pulls temperature info from array
-//     var tempEl = document.createElement('span');
-//     tempEl.textContent = weather.list[0].main.temp;
-//     console.log(tempEl);
+    // pulls temperature info from array
+    var tempEl = document.createElement('span');
+    tempEl.textContent = weather.list[0].main.temp;
+    console.log(tempEl);
     
-//     // append temperature to container with class of display
-//     var dayOfTemp = document.querySelector('.day-of-temp')
-//     dayOfTemp.appendChild(tempEl);
+    // append temperature to container with class of display
+    var dayOfTemp = document.querySelector('.day-of-temp')
+    dayOfTemp.appendChild(tempEl);
 
-//     // Getting wind speed from array
-//     var windEl = document.createElement('span');
-//     windEl.textContent = weather.list[0].wind.speed;
-//     console.log(windEl);
+    // Getting wind speed from array
+    var windEl = document.createElement('span');
+    windEl.textContent = weather.list[0].wind.speed;
+    console.log(windEl);
 
-//     // append wind speed to container with class of display
-//     var dayOfWind = document.querySelector('.day-of-wind');
-//     dayOfWind.appendChild(windEl);
+    // append wind speed to container with class of display
+    var dayOfWind = document.querySelector('.day-of-wind');
+    dayOfWind.appendChild(windEl);
 
-//     // Getting 
-// };
+    // Getting 
+};
 
 getCityInfo();

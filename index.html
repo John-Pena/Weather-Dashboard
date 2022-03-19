@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,57 +17,70 @@
 
     </header>
 
-    <section>
-        <div>
-            <h2>Search for a City:</h2>
+    <article class="columns is-flex-direction-row is-flex-wrap-wrap">
+
+        <div class="column is-3 level-item has-text-centered box">
+
+            <h2 class="subtitle is-2">Search for a City:</h2>
 
             <form>
-                <input>
+                <input class="input is-link value" type="text" placeholder="City">
             </form>
 
-            <button >Search</button>
+            <button class="btn">Search</button>
+
         </div>
 
-    </section>
+        <section class="column is-9">
 
-    <section>
+            <div class="column is-12 pl-6 box">
 
-        <h2>Atlanta (3/14/2022)</h2>
+                <h2 class="subtitle is-2 city-name"></h2>
 
-        <div class="is-full">
-            <p>Temp: </p>
-            <p>Wind: </p>
-            <p>Humidity: </p>
-            <p>UV Index: </p>
-        </div>
-    </section>
+                <div class="display">
+                    <p class="temp">Temp: </p>
+                    <p class="wind">Wind: </p>
+                    <p class="humidity">Humidity: </p>
+                    <p class="uv">UV Index: </p>
+                </div>
 
-    <section>
-        <div>
-            <h3>5-Day Forecast</h3>
-
-            <div>
-                3/15/2022
             </div>
 
-            <div>
-                3/16/2022
+            <div class="column is-12 pt-6 pl-6 box forecast">
+
+                <h3 class="subtitle is-2 level-item has-text-centered mr-6 pr-6">5-Day Forecast</h3>
+
+                <section class="columns is-12 is-flex-wrap-wrap is-justify-content-space-evenly mt-6">
+
+                    <div class="column is-2">
+                        
+                    </div>
+
+                    <div class="column is-2">
+                        
+                    </div>
+
+                    <div class="column is-2">
+                        
+                    </div>
+
+                    <div class="column is-2">
+                        
+                    </div>
+
+                    <div class="column is-2">
+                        
+                    </div>
+
+                </section>
+
             </div>
 
-            <div>
-                3/17/2022
-            </div>
+        </section>
 
-            <div>
-                3/18/2022
-            </div>
+    </article>
 
-            <div>
-                3/19/2022
-            </div>
-        </div>
-
-    </section>
-    
+<script src="assets\js\script.js"></script>
 </body>
+
 </html>

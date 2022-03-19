@@ -36,13 +36,13 @@ var getCityWeather = function(data) {
         if(response.ok) {
             response.json().then(function(data) {
                 console.log(data);
-                displayWeather(data);
+                displayDayOfWeather(data);
             });
         };
     });
 };
 
-var displayWeather = function(weather) {
+var displayDayOfWeather = function(weather) {
 
     // pulls sky description ftom array API
     var skyDesc = document.querySelector('.sky-description');

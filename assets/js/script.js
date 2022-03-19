@@ -1,17 +1,41 @@
-
-
 // var cityName = document.querySelector('.value');
+// console.log(cityName.value);
 // var button = document.querySelector('.btn')
-var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
 
-// var cityUrl = "api.openweathermap.org/data/2.5/forecast?q=" + cityName.value + "&appid="+ APIKey + "&units=imperial";
-var cityUrl = "https://api.openweathermap.org/data/2.5/forecast?q=Austin&limit=5&appid="+ APIKey + "&units=imperial";
+// fecthes weather formation from API
+var getCityInfo = function() {
+    var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
+    var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=SanAntonio&limit=5&appid=" + APIKey;
 
-// fecthes weather ubformation from API
-var getCityWeather = function() {
     fetch(cityUrl).then(function(response) {
         console.log(response);
         if (response.ok) {
+            response.json().then(function(data) {
+                console.log(data);
+                getCityWeather(data);
+            });
+        };
+    });
+};
+
+var getCityWeather = function(data) {
+    console.log('hello');
+
+    // pulls lat from GeoAPI
+    var lat = data[0].lat;
+    console.log(lat);
+
+    // pulls lon from GeoAPI
+    var lon = data[0].lon;
+    console.log(lon);
+
+    // city weather API call
+    var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
+
+    fetch(weatherUrl).then(function(response) {
+        console.log(response);
+        if(response.ok) {
             response.json().then(function(data) {
                 console.log(data);
                 displayWeather(data);
@@ -20,20 +44,27 @@ var getCityWeather = function() {
     });
 };
 
-var displayWeather = function(weather) {
+// var displayWeather = function(weather) {
 
-    // pulls temperature info from array
-    var tempEl = document.createElement('span');
-    tempEl.textContent = weather.list[0].main.temp;
-    console.log(tempEl);
+//     // pulls temperature info from array
+//     var tempEl = document.createElement('span');
+//     tempEl.textContent = weather.list[0].main.temp;
+//     console.log(tempEl);
     
-    // append temperature to container with class of display
-    var dayOfTemp = document.querySelector('.day-of-temp')
-    dayOfTemp.appendChild(tempEl);
+//     // append temperature to container with class of display
+//     var dayOfTemp = document.querySelector('.day-of-temp')
+//     dayOfTemp.appendChild(tempEl);
 
-    // Getting wind speed from array
-    var windEl = document.createElement('span');
-    windEl.textContent = weather.list[0]
-};
+//     // Getting wind speed from array
+//     var windEl = document.createElement('span');
+//     windEl.textContent = weather.list[0].wind.speed;
+//     console.log(windEl);
 
-getCityWeather();
+//     // append wind speed to container with class of display
+//     var dayOfWind = document.querySelector('.day-of-wind');
+//     dayOfWind.appendChild(windEl);
+
+//     // Getting 
+// };
+
+getCityInfo();

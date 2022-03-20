@@ -1,6 +1,6 @@
 var cityName = document.location.search;
 console.log(cityName);
-// var button = document.querySelector('.btn')
+var forecast = document.querySelector('.day-of-forecast');
 
 // fecthes lat and lon from city name search
 var getCityInfo = function() {
@@ -84,9 +84,24 @@ var displayDayOfWeather = function(weather) {
     var dayOfIndex = document.querySelector('.day-of-UV');
     dayOfIndex.appendChild(uvIndex);
 
-    
+    // if statement for uv index color dictating low uv to high uv
+    if (uvIndex >= 11) {
+        forecast.classList.add('.extreme-uv-index');
+    }
+    else if (8 <= uvIndex >= 10) {
+        forecast.classList.add('very-high-uv-index');
+    }
+    else if (6 <= uvIndex >= 7) {
+        forecast.classList.add('high-uv-index');
+    }
+    else if (3 <= uvIndex >= 5) {
+        forecast.classList.add('moderate-uv-index');
+    }
+    else {
+        forecast.classList.add('low-uv-index');
+    };
 
 };
 
-// https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey
+
 getCityInfo();

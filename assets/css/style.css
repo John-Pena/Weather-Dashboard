@@ -1,3 +1,23 @@
 * {
     box-sizing: border-box;
 }
+
+.extreme-uv-index {
+    background-color: rgba(102,51,153,.55);
+}
+
+.very-high-uv-index {
+    background-color: rgba(255,0,0,.55);
+}
+
+.high-uv-index {
+    background-color: rgba(255,165,0,.55);
+}
+
+.moderate-uv-index {
+    background-color: rgba(255,240,0,.55);
+}
+
+.low-uv-index {
+    background-color: rgba(60,179,113,.55);
+}

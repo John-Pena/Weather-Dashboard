@@ -1,13 +1,23 @@
-var cityName = document.location.search;
-console.log(cityName);
-var forecast = document.querySelector('.day-of-forecast');
+var citySearch = document.location.search;
+console.log(citySearch);
 
+var forecast = document.querySelector('.day-of-forecast');
 
 // fecthes lat and lon from city name search
 var getCityInfo = function() {
 
+    var cityName = citySearch.split('=')[1];
+
+    var displayCityName = document.querySelector('.city-name');
+    displayCityName.textContent = cityName + ' ';
+
+    var date = document.createElement('span');
+    date.textContent = moment().format('LL');
+    displayCityName.appendChild(date);
+    
+
     var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
-    var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=SanAntonio&limit=5&appid=" + APIKey;
+    var cityUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "&limit=5&appid=" + APIKey;
 
     fetch(cityUrl).then(function(response) {
         if (response.ok) {
@@ -112,13 +122,4 @@ var fiveDayForecast = function() {
 
 };
 
-var displayDate = function() {
-    
-    var date = document.querySelector('.city-name');
-    date.textContent = moment().format('LL');
-    console.log(date);
-    
-};
-
 getCityInfo();
-displayDate();

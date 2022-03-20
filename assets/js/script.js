@@ -1,8 +1,8 @@
-var cityName = document.querySelector('.value');
-console.log(cityName.text);
+var cityName = document.location.search;
+console.log(cityName);
 // var button = document.querySelector('.btn')
 
-// fecthes weather formation from API
+// fecthes lat and lon from city name search
 var getCityInfo = function() {
 
     var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
@@ -12,11 +12,13 @@ var getCityInfo = function() {
         if (response.ok) {
             response.json().then(function(data) {
                 getCityWeather(data);
+                console.log(data);
             });
         };
     });
 };
 
+// gets weather from city using lat and lon
 var getCityWeather = function(data) {
 
     // pulls lat from GeoAPI
@@ -29,7 +31,7 @@ var getCityWeather = function(data) {
 
     // city weather API call
     var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
-    var weatherUrl = "https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
 
     fetch(weatherUrl).then(function(response) {
         console.log(response);
@@ -42,16 +44,21 @@ var getCityWeather = function(data) {
     });
 };
 
+// displays day of weather
 var displayDayOfWeather = function(weather) {
 
     // pulls sky description ftom array API
     var skyDesc = document.querySelector('.sky-description');
-    skyDesc.textContent = weather.list[0].weather[0].description;
+    skyDesc.textContent = weather.weather[0].description;
+
+    var icon = weather.weather[0].icon;
+    var showIcon = document.createElement('img');
+    showIcon.src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png';
+    skyDesc.appendChild(showIcon);
 
     // pulls temperature info from array
     var tempEl = document.createElement('span');
-    tempEl.textContent = weather.list[0].main.temp;
-    console.log(tempEl);
+    tempEl.textContent = weather.main.temp;
     
     // append temperature to container with class of display
     var dayOfTemp = document.querySelector('.day-of-temp');
@@ -59,8 +66,7 @@ var displayDayOfWeather = function(weather) {
 
     // Getting Humidity info from array
     var humidityEl = document.createElement('span');
-    humidityEl.textContent = weather.list[0].main.humidity;
-    console.log(humidityEl);
+    humidityEl.textContent = weather.main.humidity;
 
     // append humidity to container with class of display
     var dayOfHumidity = document.querySelector('.day-of-humidity');
@@ -68,12 +74,12 @@ var displayDayOfWeather = function(weather) {
 
     // Getting wind speed from array
     var windEl = document.createElement('span');
-    windEl.textContent = weather.list[0].wind.speed;
-    console.log(windEl);
+    windEl.textContent = weather.wind.speed;
 
     // append wind speed to container with class of display
     var dayOfWind = document.querySelector('.day-of-wind');
     dayOfWind.appendChild(windEl);
 };
 
+// https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey
 getCityInfo();

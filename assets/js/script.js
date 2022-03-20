@@ -2,6 +2,7 @@ var cityName = document.location.search;
 console.log(cityName);
 var forecast = document.querySelector('.day-of-forecast');
 
+
 // fecthes lat and lon from city name search
 var getCityInfo = function() {
 
@@ -84,24 +85,40 @@ var displayDayOfWeather = function(weather) {
     var dayOfIndex = document.querySelector('.day-of-UV');
     dayOfIndex.appendChild(uvIndex);
 
-    // if statement for uv index color dictating low uv to high uv
+    // if statement for uv index color dictating low uv to extreme uv
     if (uvIndex >= 11) {
+        // adds purple to background
         forecast.classList.add('.extreme-uv-index');
     }
     else if (8 <= uvIndex >= 10) {
+        // adds red to background
         forecast.classList.add('very-high-uv-index');
     }
     else if (6 <= uvIndex >= 7) {
+        // adds orange to background
         forecast.classList.add('high-uv-index');
     }
     else if (3 <= uvIndex >= 5) {
+        // adds yellow to background
         forecast.classList.add('moderate-uv-index');
     }
     else {
+        // adds green to background
         forecast.classList.add('low-uv-index');
     };
+};
+
+var fiveDayForecast = function() {
 
 };
 
+var displayDate = function() {
+    
+    var date = document.querySelector('.city-name');
+    date.textContent = moment().format('LL');
+    console.log(date);
+    
+};
 
 getCityInfo();
+displayDate();

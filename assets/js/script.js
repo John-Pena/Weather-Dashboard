@@ -100,15 +100,15 @@ var displayDayOfWeather = function(weather) {
         // adds purple to background
         forecast.classList.add('.extreme-uv-index');
     }
-    else if (8 <= uvIndex >= 10) {
+    else if (uvIndex >= 8 && uvIndex < 10) {
         // adds red to background
         forecast.classList.add('very-high-uv-index');
     }
-    else if (6 <= uvIndex >= 7) {
+    else if (uvIndex >= 6 && uvIndex < 7) {
         // adds orange to background
         forecast.classList.add('high-uv-index');
     }
-    else if (3 <= uvIndex >= 5) {
+    else if (uvIndex >= 3 && uvIndex < 5) {
         // adds yellow to background
         forecast.classList.add('moderate-uv-index');
     }
@@ -116,10 +116,6 @@ var displayDayOfWeather = function(weather) {
         // adds green to background
         forecast.classList.add('low-uv-index');
     };
-};
-
-var fiveDayForecast = function() {
-
 };
 
 getCityInfo();

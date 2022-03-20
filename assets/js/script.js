@@ -31,7 +31,7 @@ var getCityWeather = function(data) {
 
     // city weather API call
     var APIKey = "28a7fce4f20896b97ae391942a7e9c8d";
-    var weatherUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey;
+    var weatherUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&exclude=minutely,hourly&units=imperial&appid=" + APIKey;
 
     fetch(weatherUrl).then(function(response) {
         console.log(response);
@@ -49,36 +49,43 @@ var displayDayOfWeather = function(weather) {
 
     // pulls sky description ftom array API
     var skyDesc = document.querySelector('.sky-description');
-    skyDesc.textContent = weather.weather[0].description;
-
-    var icon = weather.weather[0].icon;
+    skyDesc.textContent = weather.current.weather[0].description;
+    // displays weather icon
+    var icon = weather.current.weather[0].icon;
     var showIcon = document.createElement('img');
     showIcon.src = 'http://openweathermap.org/img/wn/' + icon + '@2x.png';
     skyDesc.appendChild(showIcon);
 
     // pulls temperature info from array
     var tempEl = document.createElement('span');
-    tempEl.textContent = weather.main.temp;
-    
+    tempEl.textContent = weather.current.temp;
     // append temperature to container with class of display
     var dayOfTemp = document.querySelector('.day-of-temp');
     dayOfTemp.appendChild(tempEl);
 
     // Getting Humidity info from array
     var humidityEl = document.createElement('span');
-    humidityEl.textContent = weather.main.humidity;
-
+    humidityEl.textContent = weather.current.humidity;
     // append humidity to container with class of display
     var dayOfHumidity = document.querySelector('.day-of-humidity');
     dayOfHumidity.appendChild(humidityEl);
 
     // Getting wind speed from array
     var windEl = document.createElement('span');
-    windEl.textContent = weather.wind.speed;
-
+    windEl.textContent = weather.current.wind_speed;
     // append wind speed to container with class of display
     var dayOfWind = document.querySelector('.day-of-wind');
     dayOfWind.appendChild(windEl);
+
+    // pulls uv Index from current array
+    var uvIndex = document.createElement('span');
+    uvIndex.textContent = weather.current.uvi;
+    // append uv Index to dom
+    var dayOfIndex = document.querySelector('.day-of-UV');
+    dayOfIndex.appendChild(uvIndex);
+
+    
+
 };
 
 // https://api.openweathermap.org/data/2.5/forecast?lat=" + lat + "&lon=" + lon + "&units=imperial&appid=" + APIKey

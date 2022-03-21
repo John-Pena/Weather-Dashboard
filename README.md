@@ -1,21 +1,30 @@
 # Weather-Dashboard
 
-## User Story
+## Contributors
 
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+- John Pena
 
-## Acceptance Criteria
+## Technologies Usedf
 
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+- HTML
+- CSS
+- Bulma CSS
+- JavaScript
+- Moment.JS
+- Open Weather API (onecall)
+- Open Weather API (geocoding)
+
+## Description of Project
+
+This repository was a challenge to test my knowledge on using APIs and incorporating them into my webpage to add a more dynamic interface for users. I created a dashboard that would pull the users' requested city and display the weather (desription of the day with an icon, temperature, wind speed, humidity, and uv index). Additionally, I created a location for a five day forecast to display weather for future dates in the case they would be in the requested city for a period of time.
+
+## Setup/Installation
+- Clone repository from GitHub to your preferred destination on your PC.
+- Navigate to the top level of the directory.
+- Open the 'index.html' in your browser to view.
+
+## Known Bugs
+- local storage set up has not been completed
+- uv Index color code is not functioning properly
+
+![screenshot](assets\images\screenshot.png)

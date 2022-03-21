@@ -53,8 +53,7 @@ var getCityWeather = function (coord) {
         if (response.ok) {
             response.json().then(function (data) {
                 console.log(data);
-                // displayDayOfWeather(data.current);
-                fiveDayForecast(data.daily);
+
                 var current = data.current;
                 // pulls sky description ftom array API
                 var skyDesc = document.querySelector('.sky-description');
@@ -83,19 +82,26 @@ var getCityWeather = function (coord) {
                 uvIndex.textContent = current.uvi;
 
                 // if statement for uv index color dictating low uv to extreme uv
-                // if (uvIndex < 3) {
-                //     forecast.classList.remove('')
-                //     forecast.classList.add('low-uv-index');
+                if (uvIndex < 3) {
+                    uvIndex.classList.add('low-uv-index');
+                } else if (uvIndex >= 3 && uvIndex <= 5) {
+                    uvIndex.classList.add('tag moderate-uv-index');
+                } else if (uvIndex == 6 && uvIndex == 7) {
+                    uvIndex.classList.add('tag high-uv-index');
+                } else if (uvIndex >= 8 && uvIndex < 11) {
+                    uvIndex.classList.add('tag very-high-uv-index');
+                } else if (uvIndex >= 11) {
+                    uvIndex.classList.add('tag extreme-uv-index');
+                };
 
-                // }
+                fiveDayForecast(data.daily)
             });
         };
     });
 };
 
-var fiveDayForecast = function () {
-    // first day forecast
-
+var fiveDayForecast = function (data) {
+    
 };
 
 userInput.addEventListener('submit', formHandler);

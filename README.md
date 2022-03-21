@@ -27,4 +27,7 @@ This repository was a challenge to test my knowledge on using APIs and incorpora
 - local storage set up has not been completed
 - uv Index color code is not functioning properly
 
+
+
+
 ![screenshot](https://github.com/John-Pena/Weather-Dashboard/blob/main/assets/images/screenshot.png)

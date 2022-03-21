@@ -105,6 +105,8 @@ var getCityWeather = function (coord) {
 };
 
 var firstDayForecast = function (daily){
+    var tomorrow = document.querySelector('.tomorrow');
+    tomorrow.textContent = moment().add(1, 'days').format('LL');
 
     var skyDesc = document.querySelector('.sky-description-1');
     skyDesc.textContent = daily[0].weather[0].description;
@@ -133,6 +135,8 @@ var firstDayForecast = function (daily){
 };
 
 var secondDayForecast = function (daily) {
+    var tomorrow = document.querySelector('.tomorrow-2');
+    tomorrow.textContent = moment().add(2, 'days').format('LL');
 
     var skyDesc = document.querySelector('.sky-description-2');
     skyDesc.textContent = daily[1].weather[0].description;
@@ -161,6 +165,8 @@ var secondDayForecast = function (daily) {
 };
 
 var thirdDayForecast = function (daily) {
+    var tomorrow = document.querySelector('.tomorrow-3');
+    tomorrow.textContent = moment().add(3, 'days').format('LL');
 
     var skyDesc = document.querySelector('.sky-description-3');
     skyDesc.textContent = daily[2].weather[0].description;
@@ -189,6 +195,8 @@ var thirdDayForecast = function (daily) {
 };
 
 var fourthDayForecast = function (daily) {
+    var tomorrow = document.querySelector('.tomorrow-4');
+    tomorrow.textContent = moment().add(4, 'days').format('LL');
 
     var skyDesc = document.querySelector('.sky-description-4');
     skyDesc.textContent = daily[3].weather[0].description;
@@ -217,6 +225,8 @@ var fourthDayForecast = function (daily) {
 };
 
 var fiveDayForecast = function (daily) {
+    var tomorrow = document.querySelector('.tomorrow-5');
+    tomorrow.textContent = moment().add(5, 'days').format('LL');
 
     var skyDesc = document.querySelector('.sky-description-5');
     skyDesc.textContent = daily[4].weather[0].description;
